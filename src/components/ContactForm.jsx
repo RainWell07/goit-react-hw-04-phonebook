@@ -9,22 +9,23 @@ function ContactForm({addContact}) {
     const [number, setNumber] = useState('');
 
     const handleSubmit = (evt) => {
-        evt.preventDefault();
-        if (name.trim() === '' || number.trim() === '') {
+      evt.preventDefault();
+      if (name.trim() === '' || number.trim() === '') {
         return;
-        }
-        const newContact = {
+      }
+      const newContact = {
         id: nanoid(),
         name: name,
         number: number,
-        };
-        addContact(newContact);
-        setName('');
-        setNumber('');
+      };
+      addContact(newContact);
+      setName('');
+      setNumber('');
     };
 
+
     return (
-<form className={`${css.basicFont} ${css.form}`} onSubmit={handleSubmit}>
+      <form className={`${css.basicFont} ${css.form}`} onSubmit={handleSubmit}>
       <label className={`${css.basicFont} ${css.label}`}>
         Name:
         <input
