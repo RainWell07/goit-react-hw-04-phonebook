@@ -6,17 +6,10 @@ import { nanoid } from "nanoid";
 import css from "../Modules/phoneBook.module.css";
 
 const App = () => {
-
-  const [contacts, setContacts] = useState([]);
+  
+  const localContacts = JSON.parse(localStorage.getItem('contacts'));
+  const [contacts, setContacts] = useState(localContacts ?? []);
   const [filter, setFilter] = useState('');
-
-
-  useEffect(() => {
-  const localContacts = localStorage.getItem('contacts');
-  if (localContacts !== null) {
-    setContacts(JSON.parse(localContacts));
-  }
-  },[]);
 
 
  useEffect(() => {
